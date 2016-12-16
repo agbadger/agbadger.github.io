@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Go to Photo Album" height="250" scaling="false" />
+  <ModulePrefs title="Website Feedback" height="250" scaling="false" />
   <Content type="html">
-   <html>
-    <head></head>
-    <body>
-        <script type="text/javascript" src="https://alphagraphicsdev.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-nzzmca/100023/c/1000.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=feead2c6"></script>
+  <![CDATA[
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script>
+            // Requires jQuery!
+jQuery.ajax({
+    url: "https://alphagraphicsdev.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-nzzmca/100023/c/1000.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?locale=en-US&collectorId=feead2c6",
+    type: "get",
+    cache: true,
+    dataType: "script"
+});
 
-    <script type="text/javascript">window.ATL_JQ_PAGE_PROPS =  {
+ window.ATL_JQ_PAGE_PROPS =  {
 	"triggerFunction": function(showCollectorDialog) {
 		//Requires that jQuery is available! 
 		jQuery("#myCustomTrigger").click(function(e) {
 			e.preventDefault();
 			showCollectorDialog();
 		});
-	}};</script>
+	}};
 
-    </body>
+        </script>
+    </head>
 </html>
+  ]]>
   </Content>
 </Module>
