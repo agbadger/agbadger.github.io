@@ -1,17 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
+  <ModulePrefs title="Feedback" title_url="http://sites.google.com/"
+          description="Include another web page in your Google Site"
+          thumbnail="http://www.gstatic.com/sites-gadgets/common/images/sites-icon-gadget-thumb.png"
+          screenshot="http://www.gstatic.com/sites-gadgets/common/images/sites-icon-gadget-ss.png"
+          height="800" width="600" author="Google">
+  </ModulePrefs>
+  <UserPref name="scroll" display_name="Display scrollbar" default_value="auto" datatype="enum">
+    <EnumValue value="auto" display_value="Automatic"/>
+    <EnumValue value="no" display_value="No"/>
+    <EnumValue value="yes" display_value="Yes"/>
+  </UserPref>
+  <UserPref name="width" display_name="Form width" default_value="100%" datatype="string"></UserPref>
+  <UserPref name="height" display_name="Form height" default_value="100%" datatype="string"></UserPref>
   <Content type="html" view="default,canvas">
-  <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="https://alphagraphicsdev.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/-nzzmca/100023/c/1000.0.11/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=feead2c6">;</script>
+  <![CDATA[ 
+	<script type="text/javascript">
+	    window.onload = function() {
+	        var prefs = new _IG_Prefs();
+	        var formWidth = prefs.getString("width");
+	        var formHeight = prefs.getString("height");
+	        var iframeScroll = prefs.getString("scroll");
 
-    <script type="text/javascript">window.ATL_JQ_PAGE_PROPS =  {
-	"triggerFunction": function(showCollectorDialog) {
-		//Requires that jQuery is available! 
-		jQuery("#myCustomTrigger").click(function(e) {
-			e.preventDefault();
-			showCollectorDialog();
-		});
-	}};</script>
-
+	        var feedbackFormIframe = document.createElement('iframe');
+	        feedbackFormIframe.width = formWidth;
+	        feedbackFormIframe.height = formHeight;
+	        feedbackFormIframe.scrolling = iframeScroll;
+	        feedbackFormIframe.setAttribute("frameborder", "0");
+	        feedbackFormIframe.setAttribute("allowTransparency", "true");
+	        feedbackFormIframe.src = "https://creator.zohopublic.com/zs_psnxozycpr_607373080/feedback-form/form-embed/Feedback_Form/QWJEj9RgJBjjn5aPAmW0980nJ3bbqf8ChzwOjd4fNUt476TjpRPF2DetbOfJ3ssNwMsFv9A36uZHxFCWhmT8EU5Q24KU9NN3nwem";
+	        document.body.appendChild(feedbackFormIframe);
+	    };
+	</script>
+  ]]>
   </Content>
 </Module>
